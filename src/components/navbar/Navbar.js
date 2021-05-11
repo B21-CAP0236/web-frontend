@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { FiMenu } from 'react-icons/fi';
+import {Link} from 'react-router-dom'
 
 export const Navbar = () => {
 
@@ -8,32 +9,32 @@ export const Navbar = () => {
     return (
         <nav>
             <div className=" items-center bg-green-500 h-10 flex flex-row justify-between px-10 md:">
-                <p className=" font-semibold">
+                <Link to="/" className=" font-semibold">
                     ANANTARA
-                </p>
+                </Link>
                 <div style={{width: "50rem"}} className="hidden flex-row justify-between lg:flex">
-                    <p>
+                    <Link to="/about">
                         About
-                    </p>
-                    <p>
+                    </Link>
+                    <Link to="/contacts">
                         Contact Us
-                    </p>
-                    <p>
+                    </Link>
+                    <Link to="/login">
                         Login
-                    </p>
+                    </Link>
                 </div>
                 <FiMenu className="lg:hidden" onClick={() => setMenu(!menu)} />
             </div>
             <div className={menu ? "absolute w-full flex-col flex items-center bg-green-500 " : "flex-col hidden items-center"}>
-                <p className="my-3">
+                <Link onClick={() => setMenu(false)} to="/about" className="my-3">
                     About
-                </p>
-                <p>
+                </Link>
+                <Link onClick={() => setMenu(false)} to="/contacts">
                     Contact Us
-                </p>
-                <p className="my-3">
+                </Link>
+                <Link onClick={() => setMenu(false)} to="/login" className="my-3">
                     Login
-                </p>
+                </Link>
             </div>
         </nav>
     )
