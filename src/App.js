@@ -1,13 +1,22 @@
-import {Navbar} from './components/Navbar'
+import {Route, Switch, BrowserRouter as Router} from 'react-router-dom'
+import {routes} from './config/routes'
+import {Navbar} from './components/navbar/Navbar'
 
 function App() {
   return (
-    <div>
-      <Navbar />
-      <div className="p-3 flex justify-center">
-        <p>ANANTARA Project</p>
-      </div>
-    </div>
+    <Router>
+      <Navbar/>
+      <Switch>
+        {routes.map((route) => {
+          return(
+            <Route
+                path={route.path}
+                component={route.component}
+              />
+          )
+        })}
+      </Switch>
+    </Router>
   );
 }
 
