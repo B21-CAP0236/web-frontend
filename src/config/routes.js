@@ -1,13 +1,29 @@
-import {Home, Login, About, Contacts} from '../pages'
+import { Akun, AnalisaData, Peta, Bansos, Profile, Login, Home } from '../pages'
 
 export const routes = [
     {
-        path: '/contacts',
-        component: Contacts,
+        path: '/akun',
+        component: Akun,
     },
     {
-        path: '/about',
-        component: About,
+        path: '/analisa-data',
+        component: AnalisaData,
+    },
+    {
+        path: '/peta',
+        component: Peta,
+    },
+    {
+        path: '/bansos',
+        component: Bansos,
+    },
+    {
+        path: '/analisa-data',
+        component: AnalisaData,
+    },
+    {
+        path: '/profile',
+        component: Profile,
     },
     {
         path: '/login',

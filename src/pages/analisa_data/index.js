@@ -1,11 +1,11 @@
-const About = () => {
+const AnalisaData = () => {
     return (
         <div>
             <div className="p-3 flex justify-center">
-                <p>About Page</p>
+                <p>Analisa Data Page</p>
             </div>
         </div>
     )
 }
 
-export default About
+export default AnalisaData

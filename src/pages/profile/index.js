@@ -1,11 +1,11 @@
-const Contacts = () => {
+const Profile = () => {
     return (
         <div>
             <div className="p-3 flex justify-center">
-                <p>Contacts Page</p>
+                <p>Profile Page</p>
             </div>
         </div>
     )
 }
 
-export default Contacts
+export default Profile
