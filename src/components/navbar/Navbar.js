@@ -25,6 +25,9 @@ export const Navbar = () => {
                     <Link to="/bansos">
                         Bansos
                     </Link>
+                    <Link to="/profile">
+                        Profile
+                    </Link>
                 </div>
                 <FiMenu className="lg:hidden" onClick={() => setMenu(!menu)} />
             </div>
@@ -40,6 +43,9 @@ export const Navbar = () => {
                 </Link>
                 <Link to="/bansos" onClick={() => setMenu(false)} className=" py-3 w-full flex justify-center hover:bg-white hover:text-black" >
                     Bansos
+                </Link>
+                <Link to="/profile" onClick={() => setMenu(false)} className=" py-3 w-full flex justify-center hover:bg-white hover:text-black" >
+                    Profile
                 </Link>
             </div>
             <div className=" w-full h-0.5 bg-black" />
