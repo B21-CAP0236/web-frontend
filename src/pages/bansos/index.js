@@ -95,7 +95,7 @@ const Bansos = () => {
                                     <td className=" hidden lg:table-cell">{item.tanggal}</td>
                                     <td>{item.daerah}</td>
                                     <td>{item.stok}</td>
-                                    <td><a className=" text-blue-500 underline" href={item.penerima} target="_blank">Details</a></td>
+                                    <td><a className=" text-blue-500 underline" href={item.penerima}>Details</a></td>
                                 </tr>
                             )
                         })
