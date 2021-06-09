@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import {listLocation} from '../../services/API/ListLocation'
 import {listRecipients} from '../../services/API/ListRecipients'
 import {addBansos} from '../../services/API/AddBansos'
-import {addRecipientsMapping} from '../../services/API/AddRecipientsMapping'
 
 const BansosPage = () => {
     
