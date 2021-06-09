@@ -1,79 +1,24 @@
+import {useEffect, useState} from 'react'
 import { AiFillCheckCircle, AiOutlineCloseCircle } from 'react-icons/ai';
-
-const DummyData = [
-    {
-        isActive: true,
-        tanggal: "20-01-1999",
-        daerah: "Jakarta",
-        stok: "55",
-        penerima: "https://google.com"
-    },
-    {
-        isActive: false,
-        tanggal: "20-01-1999",
-        daerah: "Jakarta",
-        stok: "55",
-        penerima: "https://google.com"
-    },
-    {
-        isActive: true,
-        tanggal: "20-01-1999",
-        daerah: "Jakarta",
-        stok: "55",
-        penerima: "https://google.com"
-    },
-    {
-        isActive: true,
-        tanggal: "20-01-1999",
-        daerah: "Jakarta",
-        stok: "55",
-        penerima: "https://google.com"
-    },
-    {
-        isActive: false,
-        tanggal: "20-01-1999",
-        daerah: "Jakarta",
-        stok: "55",
-        penerima: "https://google.com"
-    },
-    {
-        isActive: true,
-        tanggal: "20-01-1999",
-        daerah: "Jakarta",
-        stok: "55",
-        penerima: "https://google.com"
-    },
-    {
-        isActive: false,
-        tanggal: "20-01-1999",
-        daerah: "Jakarta",
-        stok: "55",
-        penerima: "https://google.com"
-    },
-    {
-        isActive: true,
-        tanggal: "20-01-1999",
-        daerah: "Jakarta",
-        stok: "55",
-        penerima: "https://google.com"
-    },
-    {
-        isActive: false,
-        tanggal: "20-01-1999",
-        daerah: "Jakarta",
-        stok: "55",
-        penerima: "https://google.com"
-    },
-    {
-        isActive: true,
-        tanggal: "20-01-1999",
-        daerah: "Jakarta",
-        stok: "55",
-        penerima: "https://google.com"
-    },
-]
+import {listBansos} from '../../services/API/ListBansos'
+import moment from 'moment'
+import 'moment/locale/id';
 
 const Bansos = () => {
+
+    const [daftarBansos, setDaftarBansos] = useState([])
+
+    async function showListBansos() {
+        await listBansos().then((value) => {
+            setDaftarBansos(value)
+        });
+    }
+    
+    useEffect(() => {
+        showListBansos()
+        moment().locale("es")
+    },[])
+
     return (
         <div>
             <div className="p-3 flex justify-center flex-col">
@@ -88,21 +33,21 @@ const Bansos = () => {
                         <th>Aksi</th>
                     </tr>
                     {
-                        DummyData.map((item, index) => {
+                        daftarBansos != [] && daftarBansos.map((item, index) => {
                             return(
                                 <tr key={index}>
-                                    <td>{item.isActive ? <AiFillCheckCircle /> : <AiOutlineCloseCircle />}</td>
-                                    <td className=" hidden lg:table-cell">{item.tanggal}</td>
-                                    <td>{item.daerah}</td>
-                                    <td>{item.stok}</td>
-                                    <td><a className=" text-blue-500 underline" href={item.penerima}>Details</a></td>
+                                    <td>{item.is_active ? <AiFillCheckCircle /> : <AiOutlineCloseCircle />}</td>
+                                    <td className=" hidden lg:table-cell">{moment(item.created_at).format('LLLL')}</td>
+                                    <td>{item.location.nama}</td>
+                                    <td>{item.stock}</td>
+                                    <td><a className=" text-blue-500 underline">Details</a></td>
                                 </tr>
                             )
                         })
                     }
                 </table>
                 <br/>
-                <span className=" self-end">Jumlah: {DummyData.length} Bansos</span>
+                <span className=" self-end">Jumlah: {daftarBansos != [] && daftarBansos.length} Bansos</span>
             </div>
         </div>
     )
