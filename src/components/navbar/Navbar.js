@@ -13,8 +13,8 @@ export const Navbar = () => {
                     ANANTARA
                 </Link>
                 <div style={{width: "50rem"}} className="hidden flex-row justify-between lg:flex">
-                    <Link to="/akun">
-                        Akun
+                    <Link to="/tambah-bansos">
+                        Tambah Bansos
                     </Link>
                     <Link to="/analisa-data">
                         Analisa Data
@@ -26,14 +26,14 @@ export const Navbar = () => {
                         Bansos
                     </Link>
                     <Link to="/profile">
-                        Profile
+                        Admin
                     </Link>
                 </div>
                 <FiMenu className="lg:hidden" onClick={() => setMenu(!menu)} />
             </div>
             <div className={menu ? "absolute w-full flex-col flex items-center bg-black text-white " : "flex-col hidden items-center"}>
-                <Link to="/akun" onClick={() => setMenu(false)} className=" py-3 w-full flex justify-center hover:bg-white hover:text-black" >
-                    Akun
+                <Link to="/tambah-bansos" onClick={() => setMenu(false)} className=" py-3 w-full flex justify-center hover:bg-white hover:text-black" >
+                    Tambah Bansos
                 </Link>
                 <Link to="/analisa-data" onClick={() => setMenu(false)} className=" py-3 w-full flex justify-center hover:bg-white hover:text-black" >
                     Analisa Data

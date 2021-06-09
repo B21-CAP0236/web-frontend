@@ -3,19 +3,20 @@ import {routes} from './config/routes'
 import {Navbar} from './components/navbar/Navbar'
 
 function App() {
+  
   return (
     <Router>
       <Navbar/>
-      <Switch>
-        {routes.map((route) => {
-          return(
-            <Route
-                path={route.path}
-                component={route.component}
-              />
-          )
-        })}
-      </Switch>
+        <Switch>
+          {routes.map((route) => {
+            return(
+              <Route
+                  path={route.path}
+                  component={route.component}
+                />
+            )
+          })}
+        </Switch>
     </Router>
   );
 }

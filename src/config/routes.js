@@ -1,9 +1,25 @@
-import { Akun, AnalisaData, Peta, Bansos, Profile, Login, Home } from '../pages'
+import { TambahBansos, AddBansos, AddLokasi, AddPenerima, AnalisaData, Peta, Bansos, Profile, Login, Home } from '../pages'
 
 export const routes = [
     {
-        path: '/akun',
-        component: Akun,
+        path: '/tambah-bansos/bansos',
+        component: AddBansos,
+    },
+    {
+        path: '/tambah-bansos/penerima',
+        component: AddPenerima,
+    },
+    {
+        path: '/tambah-bansos/lokasi',
+        component: AddLokasi,
+    },
+    {
+        path: '/tambah-bansos',
+        component: TambahBansos,
+    },
+    {
+        path: '/tambah-bansos',
+        component: TambahBansos,
     },
     {
         path: '/analisa-data',
@@ -26,11 +42,11 @@ export const routes = [
         component: Profile,
     },
     {
-        path: '/login',
-        component: Login,
+        path: '/dashboard',
+        component: Home,
     },
     {
         path: '/',
-        component: Home,
+        component: Login,
     },
 ]

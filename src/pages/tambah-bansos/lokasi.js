@@ -1,23 +1,23 @@
 import { useState } from "react";
 import {Link} from 'react-router-dom';
-import {addAdmin} from '../../services/API/AddAdmin'
+import {addLocation} from '../../services/API/AddLocation'
 
-const Profile = () => {
+const Lokasi = () => {
 
     const [nama, setNama] = useState("")
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [access, setAccess] = useState(false)
+    const [provinsi, setProvinsi] = useState("")
+    const [kota, setKota] = useState("")
+    const [alamat, setAlamat] = useState("")
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
     const [success, setSuccess] = useState(false)
 
-    async function tambahAdmin() {
+    async function addLokasi() {
         setSuccess(false)
         setLoading(true)
         setError(false)
-        if(nama != "" && email != "" && password != ""){
-            await addAdmin(nama, email, password, access).then((value) => {
+        if(nama != "" && kota != "" && provinsi != "" && alamat !=""){
+            await addLocation(nama, kota, kota, provinsi, alamat).then((value) => {
                 setSuccess(true)
             }).finally(() => {
                 setLoading(false)
@@ -32,7 +32,7 @@ const Profile = () => {
     return (
         <div>
             <div className="p-3 flex justify-center flex-col items-center">
-                <p>Admin Page</p>
+                <p>Lokasi Page</p>
                 <div>
                     <div className=" mt-3">
                         <p>
@@ -43,39 +43,41 @@ const Profile = () => {
                         onChange={(e) => setNama(e.target.value)}
                         type="text"
                         className="border border-black p-1" 
-                        placeholder="Hello World"/>
+                        placeholder="Gedung Sate"/>
                     </div>
                     <div className=" mt-3">
                         <p>
-                            Email
+                            Provinsi
                         </p>
                         <input
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        value={provinsi}
+                        onChange={(e) => setProvinsi(e.target.value)}
                         type="text"
                         className="border border-black p-1" 
-                        placeholder="hello@world.com"/>
+                        placeholder="Jawa Barat"/>
                     </div>
                     <div className=" mt-3">
                         <p>
-                            Password
+                            Kota
                         </p>
                         <input
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        value={kota}
+                        onChange={(e) => setKota(e.target.value)}
                         type="text"
                         className="border border-black p-1" 
-                        placeholder="password"/>
+                        placeholder="Kota Bandung"/>
                     </div>
                     <div className=" mt-3">
                         <p>
-                            Write Access
+                            Alamat
                         </p>
-                        <input
-                        value={access}
-                        onChange={() => setAccess(!access)}
-                        type="checkbox"
-                        className="border border-black p-1" />
+                        <textarea
+                        value={alamat}
+                        maxLength="300"
+                        onChange={(e) => setAlamat(e.target.value)}
+                        type="text"
+                        className="border border-black p-1" 
+                        placeholder="Jl. Telekomunikasi, Kota Bandung"/>
                     </div>
                     {error ? 
                         <div className=" flex flex-row justify-center mt-3">
@@ -85,14 +87,19 @@ const Profile = () => {
                         </div> : success ? 
                         <div className=" flex flex-row justify-center mt-3">
                             <p className=" text-green-500">
-                                Admin added!
+                                Location added!
                             </p>
                         </div> 
                     : ""}
                     <div className=" w-full flex flex-row justify-around my-3">
-                        {loading ? <p>Loading...</p> : <button onClick={tambahAdmin} className=" border w-40 border-black p-2 rounded-md">
-                            Tambah Admin
-                        </button>}
+                        {loading ? <p> Loading... </p> : <button onClick={addLokasi} className=" border w-20 border-black p-2 rounded-md">
+                            Tambah
+                        </button> }
+                        <Link to="/tambah-bansos/penerima">
+                            <button className=" border w-20 border-black p-2 rounded-md">
+                                Lanjut
+                            </button> 
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -100,4 +107,4 @@ const Profile = () => {
     )
 }
 
-export default Profile
+export default Lokasi
